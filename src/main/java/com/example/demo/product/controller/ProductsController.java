@@ -5,10 +5,9 @@ import com.example.demo.product.dto.ProductsRequest;
 import com.example.demo.product.service.CategoriesService;
 import com.example.demo.product.service.ProductsService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/products")
@@ -24,6 +23,11 @@ public class ProductsController {
     public ResponseEntity<Void> create(@RequestBody ProductsRequest productsRequest) {
         productsService.saveProducts(productsRequest);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/read1")
+    public ResponseEntity<List<ProductsRequest>> getAlL() {
+        return ResponseEntity.ok(productsService.findall());
     }
 
 }

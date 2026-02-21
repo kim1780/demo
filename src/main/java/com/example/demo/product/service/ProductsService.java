@@ -8,6 +8,9 @@ import com.example.demo.product.repository.CategoriesRepository;
 import com.example.demo.product.repository.ProductsRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class ProductsService {
 
@@ -26,6 +29,25 @@ public class ProductsService {
         productsEntity.setPrice(productsRequest.getPrice());
         productsEntity.setStock(productsRequest.getStock());
         productsRepository.save(productsEntity);
+    }
+
+    public List<ProductsRequest> findall() {
+        List<ProductsRequest> productsRequestList = new ArrayList<>();
+        List<ProductsEntity> productsEntities = (List<ProductsEntity>) productsRepository.findAll();
+
+
+        for (int i = 0; i < productsEntities.size(); i++){
+            ProductsRequest productsRequest = new ProductsRequest();
+            productsRequest.setId(productsEntities.get(i).getId());
+            productsRequest.setCategory_id(productsEntities.get(i).getCategory_id());
+            productsRequest.setName(productsEntities.get(i).getName());
+            productsRequest.setDescription(productsEntities.get(i).getDescription());
+            productsRequest.setPrice(productsEntities.get(i).getPrice());
+            productsRequest.setStock(productsEntities.get(i).getStock());
+            productsRequestList.add(productsRequest);
+
+        }
+        return productsRequestList;
     }
 
 }
