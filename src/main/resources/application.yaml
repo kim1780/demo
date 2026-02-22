@@ -1,14 +1,16 @@
 spring:
   application:
     name: demo
+
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
-    password: P@ssw0rd
+    password: P@ssw0r1
     driver-class-name: org.postgresql.Driver
+
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update   # 👈 เปลี่ยนตรงนี้
     show-sql: true
     properties:
       hibernate:
