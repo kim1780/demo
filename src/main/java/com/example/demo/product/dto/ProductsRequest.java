@@ -5,11 +5,13 @@ import java.math.BigDecimal;
 public class ProductsRequest {
 
     private Long id;
-    private Long category_id;
+    private Long categoryId;
     private String name;
     private String description;
     private BigDecimal price;
     private Integer stock;
+
+    // ===== Getter / Setter =====
 
     public Long getId() {
         return id;
@@ -19,12 +21,12 @@ public class ProductsRequest {
         this.id = id;
     }
 
-    public Long getCategory_id() {
-        return category_id;
+    public Long getCategoryId() {
+        return categoryId;
     }
 
-    public void setCategory_id(Long category_id) {
-        this.category_id = category_id;
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getName() {

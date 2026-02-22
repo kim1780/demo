@@ -1,28 +1,32 @@
 package com.example.demo.product.entity;
 
 import jakarta.persistence.*;
-
 import java.math.BigDecimal;
 
 @Entity
-@Table (name = "products" , schema = "public")
+@Table(name = "products", schema = "public")
 public class ProductsEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
 
-    @Column(name = "category_id")
-    private Long category_id;
+    @Column(name = "category_id", nullable = false)
+    private Long categoryId;
+
     @Column(name = "name")
-    private  String name;
+    private String name;
+
     @Column(name = "description")
     private String description;
+
     @Column(name = "price")
     private BigDecimal price;
+
     @Column(name = "stock")
     private Integer stock;
+
+    // ===== Getter / Setter =====
 
     public Long getId() {
         return id;
@@ -32,12 +36,12 @@ public class ProductsEntity {
         this.id = id;
     }
 
-    public Long getCategory_id() {
-        return category_id;
+    public Long getCategoryId() {
+        return categoryId;
     }
 
-    public void setCategory_id(Long category_id) {
-        this.category_id = category_id;
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getName() {
